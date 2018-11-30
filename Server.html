@@ -1,0 +1,82 @@
+
+
+    <!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    //ajax method
+// $(document).ready(function(){
+//     $("#btn1").click(function(){
+//       var test= $("#email").val();
+//       console.log(test);
+//       var d = {"email": test}
+//       console.log(d);
+
+//    $.ajax({
+//                       url:' https://api.sportsgritinc.com/api/v1/emails/appLinks',
+//                       type: 'POST',
+//                       data:d,
+//                       dataType:'JSON',
+                    
+                      
+//                       success: function(result) {
+//                       //Write your code here
+//                       console.log("suceess");
+                      
+                    
+//                       alert("success");
+//                       },
+//                       error:function(result) {console.log("error");}
+//             });
+//                });   
+//     });
+
+$(document).ready(function(){
+    
+    $("#btn1").click(function(){
+       var test= $("#email").val();
+        $.post("https://api.sportsgritinc.com/api/v1/emails/appLinks",
+        {
+           
+            "email":test
+          
+        },
+        function(data,status){
+            alert("success");
+        });
+    });
+});
+
+
+// function callApi(event) {
+// 		console.log('event', event);
+// 		event.preventDefault();
+// 		var test = document.getElementById('test').value;
+// 		console.log('email ::', test)
+// 		// debugger;
+// 		var xhttp = new XMLHttpRequest();
+// 		xhttp.onreadystatechange = function () {
+// 			if (this.readyState == 4 && this.status == 200) {
+// 				alert("successfull");
+// 			}
+// 		};
+// 		xhttp.open("POST", "url", true);
+// 		xhttp.setRequestHeader("Content-type", "application/json");
+// 		// .send({ "email": test});
+// 		var data = JSON.stringify({"email": test});
+// 		xhttp.send(data);
+// 	}
+
+
+</script>
+</head>
+<body>
+
+        <center>
+                Enter the Email  :<input type="email"  id="email" name="email" ><br><br>
+                <button id="btn1">submit</button> 
+             </center>
+
+</body>
+</html>
